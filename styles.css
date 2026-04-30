@@ -1,0 +1,35 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    font-size: 800px;
+
+    box-sizing: border-box;
+    display: flex;
+}
+
+#container {
+    border: 1px solid black;
+
+    align-self: center;
+    margin: 0 auto;
+
+    width: min(60vw, 60vh, 600px);
+    /* selects min value between the 3 */
+    aspect-ratio: 1/1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container pixels */
+
+.row,
+.pixel {
+    border: 1px solid black;
+    flex: 1;
+}
+
+.row {
+    display: flex;
+}
