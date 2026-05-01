@@ -2,19 +2,30 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    font-size: 800px;
 
     box-sizing: border-box;
     display: flex;
+    gap: 50px;
 }
 
+/* Dimensions slider */
+
+#dimensions-selection{
+    width: 20vw;
+    align-self: center;
+    margin-left: 20px;
+}
+
+
+/* Container */
+
 #container {
-    border: 1px solid black;
+    border: 0.1px solid black;
+    box-sizing: border-box;
 
     align-self: center;
-    margin: 0 auto;
 
-    width: min(60vw, 60vh, 600px);
+    width: min(70vw, 70vh, 700px);
     /* selects min value between the 3 */
     aspect-ratio: 1/1;
 
@@ -26,7 +37,7 @@ body {
 
 .row,
 .pixel {
-    border: 1px solid black;
+    border: 0.1px solid black;
     flex: 1;
 }
 
