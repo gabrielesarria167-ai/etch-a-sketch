@@ -38,3 +38,7 @@ A way to work on this would be to first create *yAxisPixels* containers, and the
 Then, inside every one of these containers, insert the cycle I had written before.
 
 To do this, I can insert another *for()* cycle inside my original one.
+
+Now I want to make it so the user can select the amount of pixels for the board, instead of only having a fixed size.
+
+For this, I will create a slider, and then everytime its value gets changed, I insert a new board with the updated values.
