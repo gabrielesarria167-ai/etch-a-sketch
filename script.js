@@ -40,20 +40,29 @@ function colorPixel(pixel) {
     pixel.style.backgroundColor = "black";
 }
 
+ // container variables
 const container = document.querySelector("#container");
+let totalPixels;
 
+// slider variables
 let slider = document.querySelector("#slider");
 let sliderPixels = document.querySelector("#slider-dimension");
-let totalPixels;
+
+const resetBtn = document.querySelector("#reset");
 
 slider.value = 16;
 slider.min = 16;
 slider.max = 64;
 slider.step = 16;
 
-modifySize(container); // runs once to load first grid
+modifySize(); // runs once to load first grid
 sliderPixels.textContent = `${slider.value}`; // runs once to load first grid size
 
 slider.addEventListener("click", () => {
     modifySize();
 });
+
+resetBtn.addEventListener("click", () => {
+    clearContainer(container); // removes all container pixels (including white ones)
+    modifySize(container); // loads container again
+})
