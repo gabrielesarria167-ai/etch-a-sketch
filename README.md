@@ -42,3 +42,8 @@ To do this, I can insert another *for()* cycle inside my original one.
 Now I want to make it so the user can select the amount of pixels for the board, instead of only having a fixed size.
 
 For this, I will create a slider, and then everytime its value gets changed, I insert a new board with the updated values.
+
+After the slider has been made, its time for the pixels to actually change on hover.
+I made this by adding an event listener to all pixels every time a grid loads, and when the users cursor hovers on the pixel, it turns black.
+
+I also made it so you have to first click to start coloring, to avoid messy situations, and I added a reset button that deletes all pixels in the grid, and then reloads the grid with only white ones.
