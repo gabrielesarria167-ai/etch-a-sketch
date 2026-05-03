@@ -11,14 +11,15 @@ body {
 /* Options board */
 
 #options-board{
-    width: 20vw;
-    height: 20vh;
+    flex: 1;
+    max-width: 280px;
+
     margin-left: 20px;
 
     align-self: center;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 #reset{
@@ -43,6 +44,7 @@ body {
 /* Container */
 
 #container {
+
     border: 0.1px solid black;
     box-sizing: border-box;
 
