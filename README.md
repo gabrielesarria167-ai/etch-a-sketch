@@ -47,3 +47,5 @@ After the slider has been made, its time for the pixels to actually change on ho
 I made this by adding an event listener to all pixels every time a grid loads, and when the users cursor hovers on the pixel, it turns black.
 
 I also made it so you have to first click to start coloring, to avoid messy situations, and I added a reset button that deletes all pixels in the grid, and then reloads the grid with only white ones.
+
+Next thing in my bucket list is to add a rgb picker, to select the color pixels on hover: I will add an event listener that reads the value of the rgb selector every time it changes, and save it as the color to use
