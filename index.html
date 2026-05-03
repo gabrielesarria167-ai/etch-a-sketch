@@ -10,13 +10,19 @@
 </head>
 
 <body>
-    <div id = "options-board">
+    <div id="options-board">
+
+        <form id="color-selection">
+            <label for = "rgb-picker" id = "rgb-text">Click here to select color</label>
+            <input type="color" id = "rgb-picker" name = "rgb-picker">
+        </form>
+
         <form id="dimensions-selection">
             <label id="slider-text" for="slider">Select the dimensions of the board here:</label>
             <input type="range" id="slider" name="slider">
             <div id="slider-dimension"></div>
         </form>
-        <button id = "reset">reset</button>
+        <button id="reset">reset</button>
     </div>
     <div id="container"></div>
 </body>
