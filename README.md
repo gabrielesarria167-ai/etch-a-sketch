@@ -48,4 +48,32 @@ I made this by adding an event listener to all pixels every time a grid loads, a
 
 I also made it so you have to first click to start coloring, to avoid messy situations, and I added a reset button that deletes all pixels in the grid, and then reloads the grid with only white ones.
 
-Next thing in my bucket list is to add a rgb picker, to select the color pixels on hover: I will add an event listener that reads the value of the rgb selector every time it changes, and save it as the color to use
+Next thing in my bucket list is to add a rgb picker, to select the color pixels on hover: I will add an event listener that reads the value of the rgb selector every time it changes, and save it as the color to use.
+
+To stop the hovering effect, Im thinking to impplement a feature where when the user double clicks a pixel it starts/stops.
+
+```js
+let ongoing = false;
+
+function setPixelsColoring() {
+    totalPixels = document.querySelectorAll(".pixel");
+    totalPixels.forEach((pixel) => { // pixels changing color on hover start only when the mouse gets clicked
+        pixel.addEventListener("dblclick", () => {
+            ongoing = !ongoing // toggles between true/false
+            if(ongoing){
+            colorPixel(pixel, currentColor); // calls color fn once for the first btn click to color the pixel
+            totalPixels.forEach((pixel) => { // updates event listener for every dimension change
+                pixel.addEventListener("mouseover", () => colorPixel(pixel, currentColor));
+            })
+            }
+            else{
+                pixel.removeEventListener("mouseover", () => colorPixel(pixel, currentColor));
+            }
+        })
+    })
+}
+
+function colorPixel(pixel, color) {
+    pixel.style.backgroundColor = `${color}`;
+}
+```
