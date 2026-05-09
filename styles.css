@@ -8,6 +8,24 @@ body {
     gap: 50px;
 }
 
+/* Hovering status */
+
+#hoverStatus{
+    box-sizing: border-box;
+
+    height: 10%;
+    width: 100vw;
+    position: absolute;
+
+    font-size: 2em;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 /* Options board */
 
 #options-board{
