@@ -13,36 +13,52 @@ function setDimensions(value) {
     setPixelsColoring(); // loads ability for pixels inside container to be colored upon hover
 }
 
-function colorPixel(pixel, color) {
-    pixel.style.backgroundColor = `${color}`;
+function colorPixel(event) {
+    event.target.style.backgroundColor = currentColor;
 }
 
-function colorPixelEL(event) {
-    colorPixel(event.target, currentColor);
-}
-
-function startHover(totalPixels, event) {
-    colorPixel(event.target, currentColor);
+function toggleHover(event) {
+    ongoingHover = !ongoingHover;
     totalPixels.forEach((pixel) => {
-        pixel.addEventListener("mouseover", colorPixelEL);
+        if (ongoingHover) {
+            colorPixel(event);
+            pixel.addEventListener("mouseover", colorPixel);
+            hoverStatus.textContent = "Coloring mode is currently active";
+        }
+        else{
+            pixel.removeEventListener("mouseover", colorPixel);
+            hoverStatus.textContent = "Coloring mode is currently disabled"
+        }
     })
-    hoverStatus.textContent = "Coloring mode is currently active";
 }
 
-function stopHover(totalPixels, event) {
+function erasePixel(event) {
+    event.target.style.backgroundColor = "white";
+}
+
+function toggleEraser(event) {
+    ongoingEraser = !ongoingEraser;
+    event.preventDefault();
     totalPixels.forEach((pixel) => {
-        pixel.removeEventListener("mouseover", colorPixelEL);
+        pixel.removeEventListener("click", toggleHover);
+        if (ongoingEraser) {
+            erasePixel(event);
+            pixel.addEventListener("mouseover", erasePixel);
+            hoverStatus.textContent = "Eraser Mode On";
+        }
+        else {
+            pixel.removeEventListener("mouseover", erasePixel);
+            hoverStatus.textContent = "Eraser Mode Off";
+            pixel.addEventListener("click", toggleHover);
+        }
     })
-    hoverStatus.textContent = "Coloring mode disabled";
 }
 
 function setPixelsColoring() {
     totalPixels = document.querySelectorAll(".pixel");
-    totalPixels.forEach((pixel) => { // pixels changing color on hover start only when the mouse gets dbl clicked
-        pixel.addEventListener("click", (e) => {
-            ongoingHover = !ongoingHover;
-            (ongoingHover) ? startHover(totalPixels, e) : stopHover(totalPixels, e);
-        })
+    totalPixels.forEach((pixel) => { // pixels changing color on hover start only when the mouse gets clicked
+        pixel.addEventListener("click", toggleHover);
+        pixel.addEventListener("contextmenu", toggleEraser);
     });
 }
 
@@ -61,6 +77,7 @@ function modifySize() {
 // control variables
 
 let ongoingHover = false;
+let ongoingEraser = false;
 let hoverStatus = document.querySelector("#hoverStatus");
 
 // container variables
