@@ -10,5 +10,3 @@ The toy essentially is made of a stylus and a screen to draw in to create cute a
 ---
 
 ##  COMMANDS
-
-- Click - Toggle drawing mode
